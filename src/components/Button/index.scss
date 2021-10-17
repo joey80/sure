@@ -14,12 +14,19 @@
     cursor: pointer;
   }
 
-  &--top-margin {
-    margin-top: 20px;
-  }
-
   &--secondary {
     background: #fff;
     color: $purple;
+  }
+
+  &--text {
+    background: transparent;
+    color: $purple;
+    font-size: 1.5rem;
+    text-decoration: underline;
+  }
+
+  &--top-margin {
+    margin-top: 20px;
   }
 }

@@ -11,8 +11,8 @@ const Intro = () => (
         <span className='sure-intro--smaller'>Our coverage is out of this world!</span>
       </h1>
       <span>
-        Don't hyper-sleep on these rates! We are excited to offer rocket owners comprehensive
-        coverage options to let you fly through space worry-free.
+        Don't hyper-sleep on these rates! We are excited to offer rocket owners galaxy-wide
+        comprehensive coverage options to let you fly through space worry-free.
       </span>
       <Form />
     </div>

@@ -32,8 +32,11 @@ const FormComponent = () => {
         variant='small'
         required
       />
-      <Button variant='top-margin' type='submit'>
+      <Button type='submit' variant='top-margin'>
         Get your quote!
+      </Button>
+      <Button type='reset' variant='text'>
+        Clear
       </Button>
       <div className='sure-form--text-small'>* denotes a required field</div>
     </form>
