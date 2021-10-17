@@ -9,7 +9,7 @@ interface InputTypes extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = ({ id, name, required, variant, ...rest }: InputTypes) => {
   const computedLabel = required ? `${name} *` : name;
-  const computedName = snakeCase(id ? id : name);
+  const computedName = snakeCase(id ? id : name).toLowerCase();
 
   return (
     <div className={`sure-input ${variant ? `sure-input--${variant}` : ''}`}>

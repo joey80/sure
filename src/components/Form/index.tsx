@@ -1,16 +1,19 @@
 import React, { ChangeEvent } from 'react';
 import { Button } from '../Button';
+import { FormContextProvider, useFormContext } from '../../contexts/form';
 import { Input } from '../Input';
 import './index.scss';
 
-const Form = () => {
-  const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    console.log(target.value);
+const FormComponent = () => {
+  const { dispatch, state } = useFormContext();
+
+  const handleChange = ({ target: { id, value } }: ChangeEvent<HTMLInputElement>) => {
+    dispatch({ type: 'saveFieldValue', payload: { [id]: value } });
   };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('you have submitted!');
+    console.log('you have submitted!', state);
   };
 
   return (
@@ -36,5 +39,11 @@ const Form = () => {
     </form>
   );
 };
+
+const Form = () => (
+  <FormContextProvider>
+    <FormComponent />
+  </FormContextProvider>
+);
 
 export { Form };
