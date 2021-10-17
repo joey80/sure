@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import './index.scss';
 
 interface ButtonTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'secondary';
+  variant?: 'secondary' | 'text' | 'top-margin';
 }
 
 const Button = ({ children, variant, ...rest }: ButtonTypes) => (

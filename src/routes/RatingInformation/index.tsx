@@ -1,5 +1,10 @@
 import React from 'react';
+import { Intro } from '../../components/Intro';
 
-const RatingInformation = () => <div>rating information</div>;
+const RatingInformation = () => (
+  <div>
+    <Intro />
+  </div>
+);
 
 export { RatingInformation };

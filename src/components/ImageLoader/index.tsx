@@ -1,11 +1,9 @@
 import React, { ImgHTMLAttributes, lazy, Suspense, useMemo } from 'react';
+import { capitalize } from '../../utils';
 
 interface ImageLoaderTypes extends ImgHTMLAttributes<HTMLImageElement> {
   name: string;
 }
-
-const capitalize = (string: string) =>
-  string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 
 const loadImg = (name: string) => lazy(() => import(`./Images/${name}`));
 

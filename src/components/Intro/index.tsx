@@ -1,16 +1,22 @@
 import React from 'react';
+import { Form } from '../Form';
 import { ImageLoader } from '../ImageLoader';
 import './index.scss';
 
 const Intro = () => (
   <div className='sure-intro'>
-    <div>
-      <h1>Great software is built with amazing developers</h1>
+    <div className='sure-intro__content'>
+      <h1>
+        Rocket Insurance.{' '}
+        <span className='sure-intro--smaller'>Our coverage is out of this world!</span>
+      </h1>
       <span>
-        We help build and manage a team of world-class developers to bring your vision to life
+        Don't hyper-sleep on these rates! We are excited to offer rocket owners galaxy-wide
+        comprehensive coverage options to let you fly through space worry-free.
       </span>
+      <Form />
     </div>
-    <div>
+    <div className='sure-intro--vertical-center'>
       <ImageLoader name='rocket' />
     </div>
   </div>
