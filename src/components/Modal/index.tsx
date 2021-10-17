@@ -1,4 +1,5 @@
 import React from 'react';
+import rocketAnimation from '../../assets/images/rocketAnimation.gif';
 import './index.scss';
 
 const Modal = ({ isActive }: { isActive: boolean }) => {
@@ -8,7 +9,9 @@ const Modal = ({ isActive }: { isActive: boolean }) => {
 
   return (
     <div className={`sure-modal ${root}`}>
-      <div className={`sure-modal__container ${container}`}>Calculating trajectories</div>
+      <div className={`sure-modal__container ${container}`}>
+        <img src={rocketAnimation} />
+      </div>
     </div>
   );
 };

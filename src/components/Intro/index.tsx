@@ -3,7 +3,23 @@ import { Form } from '../Form';
 import { ImageLoader } from '../ImageLoader';
 import './index.scss';
 
-const Intro = () => (
+const IntroOverview = () => (
+  <div className='sure-intro'>
+    <div className='sure-intro__content'>
+      <h1>Quote Overview</h1>
+      <span>
+        Don't hyper-sleep on these rates! We are excited to offer rocket owners galaxy-wide
+        comprehensive coverage options to let you fly through space worry-free. To get started
+        please fill out this form.
+      </span>
+    </div>
+    <div className='sure-intro--vertical-center'>
+      <ImageLoader name='man' />
+    </div>
+  </div>
+);
+
+const IntroRating = () => (
   <div className='sure-intro'>
     <div className='sure-intro__content'>
       <h1>
@@ -12,7 +28,8 @@ const Intro = () => (
       </h1>
       <span>
         Don't hyper-sleep on these rates! We are excited to offer rocket owners galaxy-wide
-        comprehensive coverage options to let you fly through space worry-free.
+        comprehensive coverage options to let you fly through space worry-free. To get started
+        please fill out this form.
       </span>
       <Form />
     </div>
@@ -22,4 +39,4 @@ const Intro = () => (
   </div>
 );
 
-export { Intro };
+export { IntroOverview, IntroRating };
