@@ -3,5 +3,17 @@
 @import './partials/_mixins';
 
 body {
-  font-size: 1.6rem;
+  background-color: $grey-light;
+  font-family: 'DM Sans', 'sans-serif';
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 4.2rem;
+}
+
+h1 {
+  color: $blue-dark;
+  font-size: 6.4rem;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 8rem;
 }
