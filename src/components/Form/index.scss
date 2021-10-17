@@ -1,4 +1,9 @@
 @import '../../assets/scss/index.scss';
 
 .sure-form {
+  margin-top: 50px;
+
+  &--text-small {
+    font-size: 1.4rem;
+  }
 }
