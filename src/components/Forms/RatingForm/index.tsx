@@ -1,14 +1,14 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import axios from 'axios';
-import { Button } from '../Button';
-import { FormContextProvider, useFormContext } from '../../contexts/form';
-import { Input } from '../Input';
-import { maskedEvent, states } from '../../utils';
-import { Modal } from '../Modal';
-import { QuoteObjectType } from '../../lambda/types';
-import { Select } from '../Select';
+import { Button } from '../../Button';
+import { FormContextProvider, useFormContext } from '../../../contexts/form';
+import { Input } from '../Components/Input';
+import { maskedEvent, states } from '../../../utils';
+import { Modal } from '../../Modal';
+import { QuoteObjectType } from '../../../lambda/types';
+import { Select } from '../Components/Select';
 import { useHistory } from 'react-router';
-import './index.scss';
+import '../index.scss';
 
 const FormComponent = () => {
   const { dispatch, state } = useFormContext();
@@ -83,10 +83,10 @@ const FormComponent = () => {
   );
 };
 
-const Form = () => (
+const RatingForm = () => (
   <FormContextProvider>
     <FormComponent />
   </FormContextProvider>
 );
 
-export { Form };
+export { RatingForm };

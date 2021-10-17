@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
 import { Label } from '../Label';
-import { snakeCase } from '../../utils';
+import { snakeCase } from '../../../../utils';
 import './index.scss';
 
 interface InputTypes extends InputHTMLAttributes<HTMLInputElement> {

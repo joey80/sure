@@ -1,9 +1,27 @@
 import React from 'react';
-import { Form } from '../Form';
+import { OverViewForm } from '../Forms/OverviewForm';
+import { RatingForm } from '../Forms/RatingForm';
 import { ImageLoader } from '../ImageLoader';
 import './index.scss';
 
-const Intro = () => (
+const IntroOverview = () => (
+  <div className='sure-intro'>
+    <div className='sure-intro__content'>
+      <h1>Quote Overview</h1>
+      <span>
+        Don't hyper-sleep on these rates! We are excited to offer rocket owners galaxy-wide
+        comprehensive coverage options to let you fly through space worry-free. To get started
+        please fill out this form.
+      </span>
+      <OverViewForm />
+    </div>
+    <div className='sure-intro--vertical-center'>
+      <ImageLoader alt='man sitting on a chair' aria-hidden={true} name='man' />
+    </div>
+  </div>
+);
+
+const IntroRating = () => (
   <div className='sure-intro'>
     <div className='sure-intro__content'>
       <h1>
@@ -12,14 +30,15 @@ const Intro = () => (
       </h1>
       <span>
         Don't hyper-sleep on these rates! We are excited to offer rocket owners galaxy-wide
-        comprehensive coverage options to let you fly through space worry-free.
+        comprehensive coverage options to let you fly through space worry-free. To get started
+        please fill out this form.
       </span>
-      <Form />
+      <RatingForm />
     </div>
     <div className='sure-intro--vertical-center'>
-      <ImageLoader name='rocket' />
+      <ImageLoader alt='man sitting on a rocket' aria-hidden={true} name='rocket' />
     </div>
   </div>
 );
 
-export { Intro };
+export { IntroOverview, IntroRating };

@@ -1,8 +1,5 @@
 import { ChangeEvent } from 'react';
 
-// capitalizes the first word in a string
-const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-
 // masking functions to format inputs during onChange events
 const maskedEvent = {
   onlyNumbers: (event: ChangeEvent<HTMLInputElement>) => {
@@ -12,8 +9,13 @@ const maskedEvent = {
   },
 };
 
+// PascalCase
+const pascalCase = (str: string) => titleCase(str).split(' ').join('');
+
 // to_snake_case
 const snakeCase = (str: string) => str.split(' ').join('_').toLowerCase();
+
+const titleCase = (str: string) => str.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase());
 
 const states = [
   'AK',
@@ -77,4 +79,4 @@ const states = [
   'WY',
 ];
 
-export { capitalize, maskedEvent, snakeCase, states };
+export { maskedEvent, pascalCase, snakeCase, states };
