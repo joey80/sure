@@ -1,5 +1,10 @@
 import React from 'react';
+import { IntroOverview } from '../../components/Intro';
 
-const QuoteOverview = () => <div>Quote Overview</div>;
+const QuoteOverview = () => (
+  <div>
+    <IntroOverview />
+  </div>
+);
 
 export { QuoteOverview };

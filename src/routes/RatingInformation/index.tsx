@@ -1,9 +1,9 @@
 import React from 'react';
-import { Intro } from '../../components/Intro';
+import { IntroRating } from '../../components/Intro';
 
 const RatingInformation = () => (
   <div>
-    <Intro />
+    <IntroRating />
   </div>
 );
 
