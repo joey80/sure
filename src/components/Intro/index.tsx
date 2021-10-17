@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form } from '../Form';
+import { OverViewForm } from '../Forms/OverviewForm';
+import { RatingForm } from '../Forms/RatingForm';
 import { ImageLoader } from '../ImageLoader';
 import './index.scss';
 
@@ -12,9 +13,10 @@ const IntroOverview = () => (
         comprehensive coverage options to let you fly through space worry-free. To get started
         please fill out this form.
       </span>
+      <OverViewForm />
     </div>
     <div className='sure-intro--vertical-center'>
-      <ImageLoader name='man' />
+      <ImageLoader alt='man sitting on a chair' aria-hidden={true} name='man' />
     </div>
   </div>
 );
@@ -31,10 +33,10 @@ const IntroRating = () => (
         comprehensive coverage options to let you fly through space worry-free. To get started
         please fill out this form.
       </span>
-      <Form />
+      <RatingForm />
     </div>
     <div className='sure-intro--vertical-center'>
-      <ImageLoader name='rocket' />
+      <ImageLoader alt='man sitting on a rocket' aria-hidden={true} name='rocket' />
     </div>
   </div>
 );
