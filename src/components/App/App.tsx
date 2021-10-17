@@ -1,5 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import { Button } from '../Button';
+import { Intro } from '../Intro';
+import { QuoteOverview } from '../../routes/QuoteOverview';
+import { RatingInformation } from '../../routes/RatingInformation';
 import './index.scss';
 
 const App = () => {
@@ -43,14 +48,21 @@ const App = () => {
   };
 
   return (
-    <div className='app'>
+    <div className='sure-app'>
       <header>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <button onClick={handlePost}>make a POST request</button>
-        <button onClick={handlePut}>make a PUT request</button>
+        <Button onClick={handlePost}>make a POST request</Button>
+        <Button onClick={handlePut}>make a PUT request</Button>
       </header>
+      <main>
+        <Router>
+          <Switch>
+            <Route exact component={QuoteOverview} path='/quote-overview' />
+            <Route exact component={RatingInformation} path='/rating-information' />
+            <Redirect to='/quote-overview' />
+          </Switch>
+        </Router>
+        <Intro />
+      </main>
     </div>
   );
 };
