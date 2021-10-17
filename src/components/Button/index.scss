@@ -7,11 +7,15 @@
   border-radius: 4px;
   color: #fff;
   font-size: 2rem;
-  margin: 0 7px;
+  margin-right: 7px;
   padding: 2.5rem 3.5rem;
 
   &:hover {
     cursor: pointer;
+  }
+
+  &--top-margin {
+    margin-top: 20px;
   }
 
   &--secondary {
