@@ -1,27 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-// import axios from 'axios';
-// import { Button } from '../Button';
 import { QuoteOverview } from '../../routes/QuoteOverview';
 import { RatingInformation } from '../../routes/RatingInformation';
 import './index.scss';
 
 const App = () => {
-  // const handlePost = async () => {
-  //   const postResults = await axios.post('/.netlify/functions/createQuote', {
-  //     first_name: 'Joey',
-  //     last_name: 'Leger',
-  //     address: {
-  //       city: 'Beverly Hills',
-  //       line_1: '123 Sesame Street',
-  //       line_2: '',
-  //       postal: '90210',
-  //       region: 'CA',
-  //     },
-  //   });
-  //   return postResults;
-  // };
-
   // const handlePut = async () => {
   //   const putResults = await axios.post('/.netlify/functions/updateQuote', {
   //     quote: {
@@ -48,10 +31,6 @@ const App = () => {
 
   return (
     <div className='sure-app'>
-      {/* <header>
-        <Button onClick={handlePost}>make a POST request</Button>
-        <Button onClick={handlePut}>make a PUT request</Button>
-      </header> */}
       <main>
         <Router>
           <Switch>

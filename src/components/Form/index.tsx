@@ -1,23 +1,38 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useEffect } from 'react';
+import axios from 'axios';
 import { Button } from '../Button';
 import { FormContextProvider, useFormContext } from '../../contexts/form';
 import { Input } from '../Input';
+import { QuoteObjectType } from '../../lambda/types';
 import './index.scss';
 
 const FormComponent = () => {
   const { dispatch, state } = useFormContext();
 
   const handleChange = ({ target: { id, value } }: ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: 'saveFieldValue', payload: { [id]: value } });
+    if (id === 'first_name' || id === 'last_name') {
+      dispatch({ type: 'saveUserName', payload: { [id]: value } });
+    }
+
+    dispatch({ type: 'saveUserAddress', payload: { [id]: value } });
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('you have submitted!', state);
+    const { data }: { data: QuoteObjectType } = await axios.post(
+      '/.netlify/functions/createQuote',
+      state.userInfo
+    );
+
+    dispatch({ type: 'saveUserQuote', payload: data });
   };
 
   return (
-    <form className='sure-form' onSubmit={handleSubmit}>
+    <form
+      className='sure-form'
+      onReset={() => dispatch({ type: 'clearFields' })}
+      onSubmit={handleSubmit}
+    >
       <Input name='First Name' onChange={handleChange} required />
       <Input name='Last Name' onChange={handleChange} required />
       <Input id='line_1' name='Address Line 1' onChange={handleChange} required variant='wide' />

@@ -6,10 +6,23 @@ interface QuoteRootObjectType {
   quoteId: string;
   rating_address: UserAddressType;
   policy_holder: UserInfoType;
-  variable_selections: QuoteVariableType;
+  variable_options: QuoteVariablesOptionType;
+  variable_selections: QuoteVariableSelectionsType;
+  premium: number;
 }
 
-interface QuoteVariableType {
+interface VariablesOptionObjectType {
+  title: string;
+  description: string;
+  values: Array<number>;
+}
+
+interface QuoteVariablesOptionType {
+  deductible: VariablesOptionObjectType;
+  asteroid_collision: VariablesOptionObjectType;
+}
+
+interface QuoteVariableSelectionsType {
   asteroid_collision: number;
   deductible: number;
 }
