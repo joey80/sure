@@ -1,15 +1,20 @@
-import React, { ChangeEvent, useEffect } from 'react';
+import React, { ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import { Button } from '../Button';
 import { FormContextProvider, useFormContext } from '../../contexts/form';
 import { Input } from '../Input';
+import { maskedEvent, states } from '../../utils';
 import { QuoteObjectType } from '../../lambda/types';
+import { Select } from '../Select';
 import './index.scss';
 
 const FormComponent = () => {
   const { dispatch, state } = useFormContext();
 
-  const handleChange = ({ target: { id, value } }: ChangeEvent<HTMLInputElement>) => {
+  // save the user data as they type
+  const handleChange = ({
+    target: { id, value },
+  }: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     if (id === 'first_name' || id === 'last_name') {
       dispatch({ type: 'saveUserName', payload: { [id]: value } });
     }
@@ -17,7 +22,8 @@ const FormComponent = () => {
     dispatch({ type: 'saveUserAddress', payload: { [id]: value } });
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  // save the user quote from the api after form submit
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const { data }: { data: QuoteObjectType } = await axios.post(
       '/.netlify/functions/createQuote',
@@ -38,12 +44,20 @@ const FormComponent = () => {
       <Input id='line_1' name='Address Line 1' onChange={handleChange} required variant='wide' />
       <Input id='line_2' name='Address Line 2' onChange={handleChange} variant='wide' />
       <Input name='City' onChange={handleChange} required />
-      <Input id='region' name='State' onChange={handleChange} variant='small' required />
+      <Select
+        defaultValue=''
+        id='region'
+        name='State'
+        onChange={handleChange}
+        options={states}
+        variant='small'
+        required
+      />
       <Input
         id='postal'
         maxLength={5}
         name='Zip'
-        onChange={handleChange}
+        onChange={(e) => handleChange(maskedEvent.onlyNumbers(e))}
         variant='small'
         required
       />
