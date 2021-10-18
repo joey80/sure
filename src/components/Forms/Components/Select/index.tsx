@@ -4,14 +4,13 @@ import { snakeCase } from '../../../../utils';
 import './index.scss';
 
 interface SelectTypes extends SelectHTMLAttributes<HTMLSelectElement> {
-  name: string;
-  options: Array<string>;
+  options?: Array<string | number>;
   variant?: 'small' | 'wide';
 }
 
 const Select = ({ id, name, options, required, variant, ...rest }: SelectTypes) => {
   const computedLabel = required ? `${name} *` : name;
-  const computedName = snakeCase(id ? id : name);
+  const computedName = snakeCase(id ? id : name || '');
 
   return (
     <div className={`sure-input sure-select ${variant ? `sure-input--${variant}` : ''}`}>
@@ -22,7 +21,7 @@ const Select = ({ id, name, options, required, variant, ...rest }: SelectTypes) 
         {...{ required, ...rest }}
       >
         <option disabled value=''></option>
-        {options.map((elm, index) => (
+        {options?.map((elm, index) => (
           <option key={index} value={elm}>
             {elm}
           </option>

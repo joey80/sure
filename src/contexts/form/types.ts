@@ -14,9 +14,14 @@ interface ActionUserTypes {
   payload: Partial<Pick<UserObjectType, 'first_name' | 'last_name'>>;
 }
 
+interface ActionQuoteVariableTypes {
+  type: 'saveUserQuoteVariable';
+  payload: Partial<QuoteObjectType['quote']['variable_selections']>;
+}
+
 interface ActionQuoteTypes {
   type: 'saveUserQuote';
-  payload: Partial<QuoteObjectType>;
+  payload: QuoteObjectType;
 }
 
 interface UserInfoType extends UserObjectType {
@@ -25,12 +30,13 @@ interface UserInfoType extends UserObjectType {
 
 interface FormContextStateTypes {
   userInfo: UserInfoType;
-  userQuote: Partial<QuoteObjectType>;
+  userQuote: QuoteObjectType;
 }
 
 interface FormContextTypes {
   dispatch(action: ActionAddressTypes): void;
   dispatch(action: ActionClearFieldsTypes): void;
+  dispatch(action: ActionQuoteVariableTypes): void;
   dispatch(action: ActionQuoteTypes): void;
   dispatch(action: ActionUserTypes): void;
   state: FormContextStateTypes;
@@ -39,6 +45,7 @@ interface FormContextTypes {
 export type {
   ActionAddressTypes,
   ActionClearFieldsTypes,
+  ActionQuoteVariableTypes,
   ActionQuoteTypes,
   ActionUserTypes,
   FormContextTypes,

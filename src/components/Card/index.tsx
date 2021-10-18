@@ -12,8 +12,6 @@ const Card = () => {
     currency: 'USD',
   });
 
-  console.log(quote);
-
   return (
     <div className='sure-card'>
       <header className='sure-card__header'>
