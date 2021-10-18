@@ -6,21 +6,51 @@ import {
   ActionUserTypes,
   FormContextTypes,
   FormContextStateTypes,
+  ActionQuoteVariableTypes,
 } from './types';
+
+const initialAddress = {
+  city: '',
+  line_1: '',
+  line_2: '',
+  postal: '',
+  region: '',
+};
+
+const initialUser = {
+  first_name: '',
+  last_name: '',
+};
 
 const initialState: FormContextStateTypes = {
   userInfo: {
-    address: {
-      city: '',
-      line_1: '',
-      line_2: '',
-      postal: '',
-      region: '',
-    },
-    first_name: '',
-    last_name: '',
+    address: initialAddress,
+    ...initialUser,
   },
-  userQuote: {},
+  userQuote: {
+    quote: {
+      policy_holder: initialUser,
+      premium: 0,
+      quoteId: '',
+      rating_address: initialAddress,
+      variable_options: {
+        asteroid_collision: {
+          description: '',
+          title: '',
+          values: [0],
+        },
+        deductible: {
+          description: '',
+          title: '',
+          values: [0],
+        },
+      },
+      variable_selections: {
+        asteroid_collision: 0,
+        deductible: 0,
+      },
+    },
+  },
 };
 
 const FormContext = createContext<FormContextTypes>({
@@ -30,7 +60,12 @@ const FormContext = createContext<FormContextTypes>({
 
 const FormReducer = (
   state: FormContextStateTypes,
-  action: ActionAddressTypes | ActionClearFieldsTypes | ActionQuoteTypes | ActionUserTypes
+  action:
+    | ActionAddressTypes
+    | ActionClearFieldsTypes
+    | ActionQuoteVariableTypes
+    | ActionQuoteTypes
+    | ActionUserTypes
 ) => {
   switch (action.type) {
     case 'clearFields':
@@ -62,6 +97,20 @@ const FormReducer = (
         ...state,
         userQuote: {
           ...action.payload,
+        },
+      };
+    case 'saveUserQuoteVariable':
+      return {
+        ...state,
+        userQuote: {
+          ...state.userQuote,
+          quote: {
+            ...state.userQuote.quote,
+            variable_selections: {
+              ...state.userQuote.quote.variable_selections,
+              ...action.payload,
+            },
+          },
         },
       };
     default:

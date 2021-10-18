@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import axios from 'axios';
 import { Button } from '../../Button';
-import { FormContextProvider, useFormContext } from '../../../contexts/form';
+import { useFormContext } from '../../../contexts/form';
 import { Input } from '../Components/Input';
 import { maskedEvent, states } from '../../../utils';
 import { Modal } from '../../Modal';
@@ -10,7 +10,7 @@ import { Select } from '../Components/Select';
 import { useHistory } from 'react-router';
 import '../index.scss';
 
-const FormComponent = () => {
+const RatingForm = () => {
   const { dispatch, state } = useFormContext();
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +20,7 @@ const FormComponent = () => {
     target: { id, value },
   }: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     if (id === 'first_name' || id === 'last_name') {
-      dispatch({ type: 'saveUserName', payload: { [id]: value } });
+      return dispatch({ type: 'saveUserName', payload: { [id]: value } });
     }
 
     dispatch({ type: 'saveUserAddress', payload: { [id]: value } });
@@ -82,11 +82,5 @@ const FormComponent = () => {
     </>
   );
 };
-
-const RatingForm = () => (
-  <FormContextProvider>
-    <FormComponent />
-  </FormContextProvider>
-);
 
 export { RatingForm };

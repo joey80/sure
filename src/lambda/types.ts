@@ -11,15 +11,15 @@ interface QuoteRootObjectType {
   premium: number;
 }
 
-interface VariablesOptionObjectType {
+interface QuoteVariablesOptionType {
+  asteroid_collision: QuoteVariablesOptionObjectType;
+  deductible: QuoteVariablesOptionObjectType;
+}
+
+interface QuoteVariablesOptionObjectType {
   title: string;
   description: string;
   values: Array<number>;
-}
-
-interface QuoteVariablesOptionType {
-  deductible: VariablesOptionObjectType;
-  asteroid_collision: VariablesOptionObjectType;
 }
 
 interface QuoteVariableSelectionsType {
@@ -44,4 +44,4 @@ interface UserObjectType extends UserInfoType {
   address: UserAddressType;
 }
 
-export type { QuoteObjectType, UserObjectType };
+export type { QuoteObjectType, QuoteRootObjectType, UserObjectType };
