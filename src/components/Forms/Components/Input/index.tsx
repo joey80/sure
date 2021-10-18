@@ -15,8 +15,8 @@ const Input = ({ id, name, required, variant, ...rest }: InputTypes) => {
     <div className={`sure-input ${variant ? `sure-input--${variant}` : ''}`}>
       <Label htmlFor={computedName}>{computedLabel}</Label>
       <input
-        className='sure-input__field'
-        data-testid='sure-input'
+        className="sure-input__field"
+        data-testid="sure-input"
         id={computedName}
         {...{ name, required, ...rest }}
       />

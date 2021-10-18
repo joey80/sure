@@ -33,26 +33,28 @@ const OverViewForm = () => {
       }
     );
 
-    data && dispatch({ type: 'saveUserQuote', payload: data });
-    setIsLoading(false);
+    if (data) {
+      setIsLoading(false);
+      return dispatch({ type: 'saveUserQuote', payload: data });
+    }
   };
 
   return (
     <>
       <Modal isActive={isLoading} />
-      <form className='sure-form' onSubmit={handleSubmit}>
+      <form className="sure-form" onSubmit={handleSubmit}>
         <Select
           name={quote?.variable_options.deductible.title}
           onChange={handleChange}
           options={quote?.variable_options.deductible.values}
         />
         <Select
-          id='asteroid_collision'
+          id="asteroid_collision"
           name={quote?.variable_options.asteroid_collision.title}
           onChange={handleChange}
           options={quote?.variable_options.asteroid_collision.values}
         />
-        <Button type='submit'>Update</Button>
+        <Button type="submit">Update</Button>
       </form>
     </>
   );

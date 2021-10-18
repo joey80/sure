@@ -10,7 +10,7 @@ const Modal = ({ isActive }: { isActive: boolean }) => {
   return (
     <div className={`sure-modal ${root}`}>
       <div className={`sure-modal__container ${container}`}>
-        <ImageLoader alt='rocket launch animation' aria-hidden={true} name='rocket animation' />
+        <ImageLoader aria-hidden={true} name="rocket animation" />
       </div>
     </div>
   );

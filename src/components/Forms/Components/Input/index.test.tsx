@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Input } from './index';
 import { maskedEvent } from '../../../../utils';
 
@@ -12,7 +12,7 @@ describe('Input', () => {
   });
 
   it('only allows numbers if masking the onChange', () => {
-    render(<Input onChange={(e) => maskedEvent.onlyNumbers(e)} />);
+    render(<Input onChange={e => maskedEvent.onlyNumbers(e)} />);
     const input = screen.getByTestId('sure-input') as HTMLInputElement;
 
     act(() => {

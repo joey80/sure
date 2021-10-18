@@ -8,14 +8,14 @@ const updateQuote = async (quoteObject: QuoteObjectType) => {
   const endpoint = `https://fed-challenge-api.sure.now.sh/api/v1/quotes/${quoteId}`;
 
   try {
-    const quote = await axios.put(endpoint, quoteObject);
-    return quote.data;
+    const updatedQuote = await axios.put(endpoint, quoteObject);
+    return updatedQuote.data;
   } catch (error) {
     return error;
   }
 };
 
-const handler: Handler = async (event) => {
+const handler: Handler = async event => {
   const body: QuoteObjectType = JSON.parse(event.body || '');
   const quote = await updateQuote(body);
 

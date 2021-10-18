@@ -13,19 +13,19 @@ const Card = () => {
   });
 
   return (
-    <div className='sure-card'>
-      <header className='sure-card__header'>
-        <div className='sure-card__header__meta'>
+    <div className="sure-card">
+      <header className="sure-card__header">
+        <div className="sure-card__header__meta">
           <span>Policy For:</span>
           <span>
             Quote ID: <strong>{quote?.quoteId}</strong>
           </span>
         </div>
-        <div className='sure-card__header__meta'>
-          <div className='sure-card__name'>
+        <div className="sure-card__header__meta">
+          <div className="sure-card__name">
             {quote?.policy_holder.first_name} {quote?.policy_holder.last_name}
           </div>
-          <div className='sure-card__address'>
+          <div className="sure-card__address">
             <div>{quote?.rating_address.line_1}</div>
             <div>{quote?.rating_address.line_2}</div>
             <div>
