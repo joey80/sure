@@ -15,7 +15,8 @@
   }
 
   &--secondary {
-    background: #fff;
+    background: transparent;
+    border: 1px solid $purple;
     color: $purple;
   }
 

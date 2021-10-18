@@ -4,13 +4,12 @@ import { snakeCase } from '../../../../utils';
 import './index.scss';
 
 interface InputTypes extends InputHTMLAttributes<HTMLInputElement> {
-  name: string;
   variant?: 'small' | 'wide';
 }
 
 const Input = ({ id, name, required, variant, ...rest }: InputTypes) => {
   const computedLabel = required ? `${name} *` : name;
-  const computedName = snakeCase(id ? id : name);
+  const computedName = snakeCase(id ? id : name || '');
 
   return (
     <div className={`sure-input ${variant ? `sure-input--${variant}` : ''}`}>
