@@ -1,19 +1,19 @@
-@import './variables';
+@import './variables.scss';
 
 @mixin sm-breakpoint {
-  @media (min-width: #{sm-breakpoint}) {
+  @media (min-width: #{$sm-breakpoint}) and (max-width: #{$md-breakpoint - 1px}) {
     @content;
   }
 }
 
 @mixin md-breakpoint {
-  @media (min-width: #{md-breakpoint}) {
+  @media (min-width: #{$md-breakpoint}) and (max-width: #{$lg-breakpoint - 1px}) {
     @content;
   }
 }
 
 @mixin lg-breakpoint {
-  @media (min-width: #{lg-breakpoint}) {
+  @media (min-width: #{$lg-breakpoint}) {
     @content;
   }
 }

@@ -4,14 +4,26 @@
   color: $blue-dark;
   display: inline-block;
   margin: 0 20px 10px 0;
-  width: 250px;
+  width: 170px;
+
+  @include lg-breakpoint {
+    width: 250px;
+  }
 
   &--small {
-    width: 115px;
+    width: 75px;
+
+    @include lg-breakpoint {
+      width: 115px;
+    }
   }
 
   &--wide {
-    width: 520px;
+    width: 360px;
+
+    @include lg-breakpoint {
+      width: 520px;
+    }
   }
 
   &__field {
@@ -19,7 +31,11 @@
     border-color: transparent;
     border-radius: 8px;
     box-shadow: 0px 10px 50px rgba(48, 98, 145, 0.08);
-    padding: 24px 0 24px 24px;
+    padding: 12px 0 12px 12px;
     width: 100%;
+
+    @include lg-breakpoint {
+      padding: 24px 0 24px 24px;
+    }
   }
 }

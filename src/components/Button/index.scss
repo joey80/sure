@@ -8,7 +8,11 @@
   color: #fff;
   font-size: 2rem;
   margin-right: 7px;
-  padding: 2.5rem 3.5rem;
+  padding: 20px 25px;
+
+  @include lg-breakpoint {
+    padding: 25px 35px;
+  }
 
   &:hover {
     cursor: pointer;

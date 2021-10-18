@@ -1,7 +1,11 @@
 @import '../../assets/scss/index.scss';
 
 .sure-form {
-  margin-top: 50px;
+  margin-top: 20px;
+
+  @include md-breakpoint {
+    margin-top: 50px;
+  }
 
   &--text-small {
     font-size: 1.4rem;
