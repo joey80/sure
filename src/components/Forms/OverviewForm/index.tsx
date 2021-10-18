@@ -1,6 +1,7 @@
-import React, { ChangeEvent, FormEvent } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import axios from 'axios';
 import { Button } from '../../Button';
+import { Modal } from '../../Modal';
 import { QuoteObjectType } from '../../../lambda/types';
 import { Select } from '../Components/Select';
 import { useFormContext } from '../../../contexts/form';
@@ -8,6 +9,7 @@ import '../index.scss';
 
 const OverViewForm = () => {
   const { dispatch, state } = useFormContext();
+  const [isLoading, setIsLoading] = useState(false);
   const { userQuote } = state;
   const { quote } = userQuote;
 
@@ -17,6 +19,7 @@ const OverViewForm = () => {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    setIsLoading(true);
 
     const { data }: { data: QuoteObjectType } = await axios.post(
       '/.netlify/functions/updateQuote',
@@ -31,23 +34,27 @@ const OverViewForm = () => {
     );
 
     data && dispatch({ type: 'saveUserQuote', payload: data });
+    setIsLoading(false);
   };
 
   return (
-    <form className='sure-form' onSubmit={handleSubmit}>
-      <Select
-        name={quote?.variable_options.deductible.title}
-        onChange={handleChange}
-        options={quote?.variable_options.deductible.values}
-      />
-      <Select
-        id='asteroid_collision'
-        name={quote?.variable_options.asteroid_collision.title}
-        onChange={handleChange}
-        options={quote?.variable_options.asteroid_collision.values}
-      />
-      <Button type='submit'>Update</Button>
-    </form>
+    <>
+      <Modal isActive={isLoading} />
+      <form className='sure-form' onSubmit={handleSubmit}>
+        <Select
+          name={quote?.variable_options.deductible.title}
+          onChange={handleChange}
+          options={quote?.variable_options.deductible.values}
+        />
+        <Select
+          id='asteroid_collision'
+          name={quote?.variable_options.asteroid_collision.title}
+          onChange={handleChange}
+          options={quote?.variable_options.asteroid_collision.values}
+        />
+        <Button type='submit'>Update</Button>
+      </form>
+    </>
   );
 };
 
