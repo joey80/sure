@@ -1,6 +1,37 @@
 @import '../../assets/scss/index.scss';
 
+body {
+  background-color: $grey-light;
+  font-family: 'DM Sans', 'sans-serif';
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 3rem;
+
+  @include lg-breakpoint {
+    font-size: 1.8rem;
+    line-height: 4.2rem;
+  }
+}
+
+h1 {
+  color: $blue-dark;
+  font-size: 4.4rem;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 6rem;
+
+  @include lg-breakpoint {
+    font-size: 6.4rem;
+    line-height: 8rem;
+  }
+}
+
 .sure-app {
-  margin: 0 auto 50px auto;
-  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  @include lg-breakpoint {
+    margin: 0 auto 50px auto;
+    max-width: 1200px;
+  }
 }
