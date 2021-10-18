@@ -118,7 +118,7 @@ const FormReducer = (
   }
 };
 
-const FormContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
+const FormContextProvider = ({ children }: React.PropsWithChildren<Record<string, unknown>>) => {
   const [state, dispatch] = useReducer(FormReducer, initialState);
 
   return <FormContext.Provider value={{ dispatch, state }}>{children}</FormContext.Provider>;

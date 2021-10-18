@@ -13,7 +13,7 @@ const createQuote = async (userObject: UserObjectType) => {
   }
 };
 
-const handler: Handler = async (event) => {
+const handler: Handler = async event => {
   const body: UserObjectType = JSON.parse(event.body || '');
   const quote = await createQuote(body);
 
