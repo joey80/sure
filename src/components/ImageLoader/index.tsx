@@ -11,7 +11,7 @@ const ImageLoader = ({ name, ...rest }: ImageLoaderTypes) => {
   const ImgComponent = useMemo(() => loadImg(pascalCase(name)), [name]);
 
   return (
-    <Suspense fallback={<img {...rest} />}>
+    <Suspense fallback={<img alt="" {...rest} />}>
       <ImgComponent {...rest} />
     </Suspense>
   );

@@ -36,48 +36,50 @@ const RatingForm = () => {
       state.userInfo
     );
 
-    dispatch({ type: 'saveUserQuote', payload: data });
-    setIsLoading(false);
-    data && history.push('/quote-overview');
+    if (data) {
+      setIsLoading(false);
+      dispatch({ type: 'saveUserQuote', payload: data });
+      return history.push('/quote-overview');
+    }
   };
 
   return (
     <>
       <Modal isActive={isLoading} />
       <form
-        className='sure-form'
+        className="sure-form"
         onReset={() => dispatch({ type: 'clearFields' })}
         onSubmit={handleSubmit}
       >
-        <Input name='First Name' onChange={handleChange} required />
-        <Input name='Last Name' onChange={handleChange} required />
-        <Input id='line_1' name='Address Line 1' onChange={handleChange} required variant='wide' />
-        <Input id='line_2' name='Address Line 2' onChange={handleChange} variant='wide' />
-        <Input name='City' onChange={handleChange} required />
+        <Input name="First Name" onChange={handleChange} required />
+        <Input name="Last Name" onChange={handleChange} required />
+        <Input id="line_1" name="Address Line 1" onChange={handleChange} required variant="wide" />
+        <Input id="line_2" name="Address Line 2" onChange={handleChange} variant="wide" />
+        <Input name="City" onChange={handleChange} required />
         <Select
-          defaultValue=''
-          id='region'
-          name='State'
+          defaultValue=""
+          id="region"
+          name="State"
           onChange={handleChange}
           options={states}
-          variant='small'
+          variant="small"
           required
         />
         <Input
-          id='postal'
+          id="postal"
           maxLength={5}
-          name='Zip'
-          onChange={(e) => handleChange(maskedEvent.onlyNumbers(e))}
-          variant='small'
+          name="Zip"
+          onChange={e => handleChange(maskedEvent.onlyNumbers(e))}
+          variant="small"
           required
         />
-        <Button type='submit' variant='top-margin'>
+        <Button type="submit" variant="top-margin">
           Get your quote!
         </Button>
-        <Button type='reset' variant='text'>
+        <Button type="reset" variant="text">
           Clear
         </Button>
-        <div className='sure-form--text-small'>* denotes a required field</div>
+        <div className="sure-form--text-small">* denotes a required field</div>
       </form>
     </>
   );

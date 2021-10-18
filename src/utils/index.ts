@@ -9,13 +9,13 @@ const maskedEvent = {
   },
 };
 
+const titleCase = (str: string) => str.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase());
+
 // PascalCase
 const pascalCase = (str: string) => titleCase(str).split(' ').join('');
 
 // to_snake_case
 const snakeCase = (str: string) => str.split(' ').join('_').toLowerCase();
-
-const titleCase = (str: string) => str.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase());
 
 const states = [
   'AK',

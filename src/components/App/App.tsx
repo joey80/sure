@@ -6,14 +6,14 @@ import { RatingInformation } from '../../routes/RatingInformation';
 import './index.scss';
 
 const App = () => (
-  <div className='sure-app'>
+  <div className="sure-app">
     <main>
       <Router>
         <Switch>
           <FormContextProvider>
-            <Route exact component={QuoteOverview} path='/quote-overview' />
-            <Route exact component={RatingInformation} path='/rating-information' />
-            <Redirect to='/rating-information' />
+            <Route exact component={QuoteOverview} path="/quote-overview" />
+            <Route exact component={RatingInformation} path="/rating-information" />
+            <Redirect to="/rating-information" />
           </FormContextProvider>
         </Switch>
       </Router>

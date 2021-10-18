@@ -4,11 +4,11 @@ import { RatingForm } from '../../components/Forms/RatingForm';
 import '../index.scss';
 
 const RatingInformation = () => (
-  <div className='sure-intro'>
-    <div className='sure-intro__content'>
+  <div className="sure-intro">
+    <div className="sure-intro__content">
       <h1>
         Rocket Insurance.{' '}
-        <span className='sure-intro--smaller'>Our coverage is out of this world!</span>
+        <span className="sure-intro--smaller">Our coverage is out of this world!</span>
       </h1>
       <span>
         Don't hyper-sleep on these rates! We are excited to offer rocket owners galaxy-wide
@@ -17,13 +17,8 @@ const RatingInformation = () => (
       </span>
       <RatingForm />
     </div>
-    <div className='sure-intro--vertical-center'>
-      <ImageLoader
-        alt='man sitting on a rocket'
-        aria-hidden={true}
-        className='sure-intro__image'
-        name='rocket'
-      />
+    <div className="sure-intro--vertical-center">
+      <ImageLoader aria-hidden={true} className="sure-intro__image" name="rocket" />
     </div>
   </div>
 );
