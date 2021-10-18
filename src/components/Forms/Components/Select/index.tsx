@@ -15,11 +15,7 @@ const Select = ({ id, name, options, required, variant, ...rest }: SelectTypes) 
   return (
     <div className={`sure-input sure-select ${variant ? `sure-input--${variant}` : ''}`}>
       <Label htmlFor={computedName}>{computedLabel}</Label>
-      <select
-        className="sure-input__field sure-select__field"
-        id={computedName}
-        {...{ required, ...rest }}
-      >
+      <select className="sure-select__field" id={computedName} {...{ required, ...rest }}>
         <option disabled value=""></option>
         {options?.map((elm, index) => (
           <option key={index} value={elm}>
