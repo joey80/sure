@@ -38,6 +38,11 @@
     width: 200px;
 
     @include md-breakpoint {
+      height: 300px;
+      width: 300px;
+    }
+
+    @include lg-breakpoint {
       height: 400px;
       width: 400px;
     }
